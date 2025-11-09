@@ -10,11 +10,15 @@ body{
     color: aliceblue;
 
 }
-#listy tr{
+#listy tbody tr{
     background-color: aliceblue;
     text-align: center;
+    border-bottom: solid 3px gray;
 }
 #listy tbody tr td:nth-child(1){
     color:red;
-}git config --global user.name "Your Name"
-git config --global user.email "your@email.com"
+}
+#inp{
+    text-align: center;
+    
+}
