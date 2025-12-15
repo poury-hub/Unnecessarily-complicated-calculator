@@ -47,19 +47,19 @@ addboy.onclick = function(){
 }
 test.onclick = imgadder;
 
-let table = document.getElementById('listy');
-function imgadder(){
-    img = document.createElement('img');
-    img.src="black.webp";
-    img.id="blackimg"
-    table.after(img);
-}
-
+     let table = document.getElementById('listy');
 // function imgadder(){
-//     link = document.createElement('a')
-//     link.href="indexxxx.html"
 //     img = document.createElement('img');
-//     img.src="void.webp"
-//     link.append(img)
-//     table.before(link)
+//     img.src="black.webp";
+//     img.id="blackimg"
+//     table.after(img);
 // }
+
+function imgadder(){
+    link = document.createElement('a')
+    link.href="indexxxx.html"
+    img = document.createElement('img');
+    img.src="void.webp"
+    link.append(img)
+    table.before(link)
+}

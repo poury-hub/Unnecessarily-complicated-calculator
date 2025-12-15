@@ -1,0 +1,70 @@
+
+header{
+   font-family: sans-serif;
+   color:wheat; 
+   transition: color 3s;
+   
+}
+header:hover{
+   color:chocolate
+}
+header h1{
+   margin: 7;
+}
+header a{
+   
+   color: aquamarine;
+   border:solid;
+   border: 8px;
+   border-color: rgb(98, 90, 91);
+   border-style: groove;
+   background-color:rgb(255, 0, 234);
+}
+#h22{
+   text-decoration-line:underline ;
+   text-decoration-color: #66b2ff;
+   text-decoration-style: wavy;
+   text-decoration-thickness: 1px;
+   margin: 10px;
+}
+a:active{
+   text-decoration: none;
+}
+footer{
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #66b2ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+   }
+   input[type="text"]{
+      border: 2px dotted cadetblue;
+      border-radius: 6px 0px 0px 6px;
+      color: #66b2ff;
+      margin-right: opx;
+   }
+   form button{
+      border-radius: 0px 5px 5px 0px;
+      margin-left: 0px;
+      
+   }
+   form button:active{
+      background-color: aqua;
+      color: cadetblue;
+   }
+   form button:hover{
+      color: beige;
+      background-color: grey;
+   }
+   ol{
+      list-style-type: lower-roman;
+   }

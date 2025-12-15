@@ -1,0 +1,27 @@
+#box{
+    margin: 50px;
+    display:inline-block;
+    padding: 80px;
+    border: 8px solid #3992b3 ;
+    box-shadow: 0 0 15px aqua, 0 0 15px aqua;
+    animation-name:boxi;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes boxi{
+    0%{
+        ;
+    }
+    3%{
+        border-color: #3992b3;
+    }
+    50%{
+        border-color:aquamarine;
+         
+    }
+    100%{
+        transform: rotateX(180deg);
+        color: aqua;
+    }
+}
