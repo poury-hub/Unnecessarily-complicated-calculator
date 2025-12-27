@@ -1,51 +1,62 @@
 import re
 # inp = input("enter it like normal no fancy inputs needed:")
-inp = "*T+12 + 3 *   4 - 2salam / 1 ^-+ 2 %   3 2/"              #test input 
-refine = re.sub(r"[^\d+\-*/%^]" , "" , inp)                     #removes whitespaces and letters
-refine = re.sub(r"(?<=[+\-*/%^])[+\-*/%^]+" , "" , refine)      #removes duplicate operators and only keeps the first one
-# print(refine)
-numbers = re.findall(r"\d+" , refine)
-# print(numbers)
-oprations = re.findall(r"(?<=\d)[+\-*/%^](?=\d)" , refine)
-# print(oprations)
+inp = "*T+12 + 3 *   4 - 2salam / 1 ^-+ 2 %   3 2/"              #test input
 
-numbers = [int(x) for x in numbers]
 
-for index , op in enumerate(oprations):
-    if op == "^":
-        numbers[index] = numbers[index] ** numbers[index + 1]
-        del numbers[index + 1]
-        del oprations[index]
+def calc(x):
+    refine = re.sub(r"[^\d+\-*/%^]" , "" , inp)                     #removes whitespaces and letters
+    refine = re.sub(r"(?<=[+\-*/%^])[+\-*/%^]+" , "" , refine)      #removes duplicate operators and only keeps the first one
+    # print(refine)
 
-for index , op in enumerate(oprations):
-    if op == "*":
-        numbers[index] = numbers[index] * numbers[index + 1]
-        del numbers[index + 1]
-        del oprations[index]
+    numbers = re.findall(r"\d+" , refine)
+    # print(numbers)
 
-for index , op in enumerate(oprations):
-    if op == "/":
-        numbers[index] = numbers[index] / numbers[index + 1]
-        del numbers[index + 1]
-        del oprations[index]
+    oprations = re.findall(r"(?<=\d)[+\-*/%^](?=\d)" , refine)
+    # print(oprations)
 
-for index , op in enumerate(oprations):
-    if op == "%":
-        numbers[index] = numbers[index] % numbers[index + 1]
-        del numbers[index + 1]
-        del oprations[index]
+    numbers = [int(x) for x in numbers]
+    for index , op in enumerate(oprations):
+        if op == "^":
+            numbers[index] = numbers[index] ** numbers[index + 1]
+            del numbers[index + 1]
+            del oprations[index]
 
-for index , op in enumerate(oprations):
-    if op == "+":
-        numbers[index] = numbers[index] + numbers[index + 1]
-        del numbers[index + 1]
-        del oprations[index]
+    for index , op in enumerate(oprations):
+        if op == "*":
+            numbers[index] = numbers[index] * numbers[index + 1]
+            del numbers[index + 1]
+            del oprations[index]
 
-for index , op in enumerate(oprations):
-    if op == "-":
-        numbers[index] = numbers[index] - numbers[index + 1]
-        del numbers[index + 1]
-        del oprations[index]
+    for index , op in enumerate(oprations):
+        if op == "/":
+            numbers[index] = numbers[index] / numbers[index + 1]
+            del numbers[index + 1]
+            del oprations[index]
 
-print("javab:" , numbers[0])
+    for index , op in enumerate(oprations):
+        if op == "%":
+            numbers[index] = numbers[index] % numbers[index + 1]
+            del numbers[index + 1]
+            del oprations[index]
+
+    for index , op in enumerate(oprations):
+        if op == "+":
+            numbers[index] = numbers[index] + numbers[index + 1]
+            del numbers[index + 1]
+            del oprations[index]
+
+    for index , op in enumerate(oprations):
+        if op == "-":
+            numbers[index] = numbers[index] - numbers[index + 1]
+            del numbers[index + 1]
+            del oprations[index]
+
+    return numbers[0]
+
+print("javab:" , calc(inp))
 print(12+3*4-2/1**2%32)
+
+while True:
+    inp = input("equation:")
+    print("javab:" , calc(inp))
+    print("done")
