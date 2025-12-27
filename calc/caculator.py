@@ -1,5 +1,5 @@
 import re
-# inp = input("enter it like normal no fancy inputs needed:")
+# inp = input("enter it the way you like to enter it no fancy inputs needed:")
 inp = "*T+12 + 3 *   4 - 2salam / 1 ^-+ 2 %   3 2/"              #test input
 
 
@@ -53,8 +53,8 @@ def calc(x):
 
     return numbers[0]
 
-print("javab:" , calc(inp))
-print(12+3*4-2/1**2%32)
+print("javab:" , calc(inp))         #for showcase
+print(12+3*4-2/1**2%32)             #its the inp aquation with normal python also for showcase
 
 while True:
     inp = input("equation:")
