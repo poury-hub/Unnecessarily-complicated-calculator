@@ -56,7 +56,7 @@ def calc(x):
 print("javab:" , calc(inp))         #for showcase
 print(12+3*4-2/1**2%32)             #its the inp aquation with normal python also for showcase
 
-while True:
-    inp = input("equation:")
-    print("javab:" , calc(inp))
-    print("done")
+# while True:
+#     inp = input("equation:")
+#     print("javab:" , calc(inp))
+#     print("done")
