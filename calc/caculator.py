@@ -1,17 +1,38 @@
-import re
+import regex as re
 # inp = input("enter it the way you like to enter it no fancy inputs needed:")
-inp = "*T+12 + 3 *   4 - 2salam / 1 ^-+ 2 %   3 2/"              #test input
+inp = "*T+12 + 3 *   ((4 - 2salam / 1 ^-+ 2 % ) +  (3 2))/"              #test input
+
+def refine(x):
+    refine = re.sub(r"[^\d+\-*/%^()]" , "" , x)                     #removes whitespaces and letters
+    refine = re.sub(r"(?<=[+\-*/%^])[+\-*/%^]+" , "" , refine)      #removes duplicate operators and only keeps the first one
+    print(refine)
+    return refine
+    
+paratesis = re.compile(r"""
+                        (?P<para>   
+                            [([{]      #opeinig
+                            (?:
+                                [^()[\]{}]+  
+                                |               #so if there is multiple parentheses it will not get bugged down
+                                (?&para)        #recursion
+                            )*
+                            [)\]}]     #closing
+                        )
+                        """, re.VERBOSE)
+
+paras = re.findall(paratesis , refine(inp)) 
+print(paras)
+
 
 
 def calc(x):
-    refine = re.sub(r"[^\d+\-*/%^]" , "" , inp)                     #removes whitespaces and letters
-    refine = re.sub(r"(?<=[+\-*/%^])[+\-*/%^]+" , "" , refine)      #removes duplicate operators and only keeps the first one
+    refined = refine(x)
     # print(refine)
 
-    numbers = re.findall(r"\d+" , refine)
+    numbers = re.findall(r"\d+" , refined)
     # print(numbers)
 
-    oprations = re.findall(r"(?<=\d)[+\-*/%^](?=\d)" , refine)
+    oprations = re.findall(r"(?<=\d)[+\-*/%^](?=\d)" , refined)
     # print(oprations)
 
     numbers = [int(x) for x in numbers]
